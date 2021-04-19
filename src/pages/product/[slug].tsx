@@ -3,14 +3,12 @@ import type {
   GetStaticPropsContext,
   InferGetStaticPropsType,
 } from 'next'
-import { useRouter } from 'next/router'
-import { Layout } from '@components/common'
-import { ProductView } from '@components/product'
-
-import { getConfig } from '@framework/api'
-import getProduct from '@framework/product/get-product'
 import getAllPages from '@framework/common/get-all-pages'
 import getAllProductPaths from '@framework/product/get-all-product-paths'
+import getProduct from '@framework/product/get-product'
+import { getConfig } from '@framework/api'
+import { Layout } from '@components/common'
+import { useRouter } from 'next/router'
 
 export async function getStaticProps({
   params,
@@ -63,7 +61,7 @@ export default function Slug({
   return router.isFallback ? (
     <h1>Loading...</h1> // TODO (BC) Add Skeleton Views
   ) : (
-    <ProductView product={product as any} />
+    <div>Render a product view here</div>
   )
 }
 

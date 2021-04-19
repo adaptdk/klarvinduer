@@ -2,7 +2,7 @@ const commerce = require('./commerce.config.json')
 const {
   withCommerceConfig,
   getProviderName,
-} = require('./framework/commerce/config')
+} = require('./src/framework/commerce/config')
 
 const provider = commerce.provider || getProviderName()
 const isBC = provider === 'bigcommerce'
@@ -10,6 +10,9 @@ const isShopify = provider === 'shopify'
 
 module.exports = withCommerceConfig({
   commerce,
+  future: {
+    webpack5: true,
+  },
   i18n: {
     locales: ['en-US', 'es'],
     defaultLocale: 'en-US',

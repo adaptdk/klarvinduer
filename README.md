@@ -62,7 +62,7 @@ Every provider defines the features that it supports under `framework/{provider}
 
 ### How to create a new provider
 
-Follow our docs for [Adding a new Commerce Provider](framework/commerce/new-provider.md).
+Follow our docs for [Adding a new Commerce Provider](src/framework/commerce/new-provider.md).
 
 If you succeeded building a provider, submit a PR with a valid demo and we'll review it asap.
 

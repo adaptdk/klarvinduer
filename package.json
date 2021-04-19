@@ -1,95 +1,35 @@
 {
   "name": "nextjs-commerce",
   "version": "1.0.0",
+  "sideEffects": false,
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "analyze": "BUNDLE_ANALYZE=both yarn build",
-    "prettier-fix": "prettier --write .",
     "find:unused": "next-unused",
+    "format": "prettier --write .",
     "generate": "graphql-codegen",
-    "generate:definitions": "node src/framework/bigcommerce/scripts/generate-definitions.js"
+    "generate:definitions": "node src/framework/bigcommerce/scripts/generate-definitions.js",
+    "lint": "echo '@casper, setup eslint for helvede man'",
+    "prettier-fix": "prettier --write .",
+    "type-check": "tsc --pretty --noEmit"
   },
-  "sideEffects": false,
-  "license": "MIT",
   "engines": {
     "node": "14.x"
   },
-  "dependencies": {
-    "@headlessui/react": "^1.0.0",
-    "@reach/portal": "^0.15.0",
-    "@reduxjs/toolkit": "^1.5.1",
-    "@vercel/fetch": "^6.1.0",
-    "bowser": "^2.11.0",
-    "clsx": "^1.1.1",
-    "dot-object": "^2.1.4",
-    "focus-visible": "^5.2.0",
-    "framer-motion": "^4.1.5",
-    "immutability-helper": "^3.1.1",
-    "lodash-es": "^4.17.21",
-    "next": "^10.0.9-canary.5",
-    "next-compose-plugins": "^2.2.1",
-    "next-seo": "^4.11.0",
-    "next-themes": "^0.0.4",
-    "nprogress": "^0.2.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-focus-lock": "^2.5.0",
-    "react-hook-form": "^7.2.1",
-    "react-icons": "^4.2.0",
-    "react-merge-refs": "^1.1.0",
-    "react-redux": "^7.2.3",
-    "react-remove-scroll": "^2.4.1",
-    "react-ticker": "^1.2.2",
-    "react-use": "^17.2.3",
-    "swr": "^0.5.5"
-  },
-  "devDependencies": {
-    "@graphql-codegen/cli": "^1.20.0",
-    "@graphql-codegen/schema-ast": "^1.18.1",
-    "@graphql-codegen/typescript": "^1.19.0",
-    "@graphql-codegen/typescript-operations": "^1.17.13",
-    "@manifoldco/swagger-to-ts": "^2.1.0",
-    "@next/bundle-analyzer": "^10.0.1",
-    "@tailwindcss/forms": "^0.3.2",
-    "@tailwindcss/typography": "^0.4.0",
-    "@types/dot-object": "^2.1.2",
-    "@types/lodash-es": "^4.17.4",
-    "@types/node": "^14.14.16",
-    "@types/nprogress": "^0.2.0",
-    "@types/prettier": "2.2.1",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.3",
-    "@types/react-redux": "^7.1.16",
-    "autoprefixer": "^10.2.5",
-    "deepmerge": "^4.2.2",
-    "graphql": "^15.4.0",
-    "husky": "^4.3.8",
-    "lint-staged": "^10.5.3",
-    "next-unused": "0.0.6",
-    "postcss": "^8.2.10",
-    "postcss-flexbugs-fixes": "^4.2.1",
-    "postcss-nesting": "^7.0.1",
-    "postcss-preset-env": "^6.7.0",
-    "prettier": "2.2.1",
-    "tailwindcss": "^2.1.1",
-    "tailwindcss-debug-screens": "^2.0.0",
-    "typescript": "^4.0.3"
-  },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run type-check",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx}": [
-      "prettier --write",
-      "git add"
-    ],
-    "**/*.{md,mdx,json}": [
-      "prettier --write",
-      "git add"
+    "*.@(ts|tsx)": [
+      "npm run lint",
+      "npm run format"
     ]
   },
   "next-unused": {
@@ -123,5 +63,74 @@
     "entrypoints": [
       "pages"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.0.0",
+    "@reach/portal": "^0.15.0",
+    "@reduxjs/toolkit": "^1.5.1",
+    "@vercel/fetch": "^6.1.0",
+    "bowser": "^2.11.0",
+    "clsx": "^1.1.1",
+    "cookie": "^0.4.1",
+    "dot-object": "^2.1.4",
+    "focus-visible": "^5.2.0",
+    "framer-motion": "^4.1.5",
+    "immutability-helper": "^3.1.1",
+    "lodash-es": "^4.17.21",
+    "next": "^10.0.9-canary.5",
+    "next-compose-plugins": "^2.2.1",
+    "next-seo": "^4.11.0",
+    "next-themes": "^0.0.4",
+    "nprogress": "^0.2.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-focus-lock": "^2.5.0",
+    "react-hook-form": "^7.2.1",
+    "react-icons": "^4.2.0",
+    "react-merge-refs": "^1.1.0",
+    "react-redux": "^7.2.3",
+    "react-remove-scroll": "^2.4.1",
+    "react-ticker": "^1.2.2",
+    "react-use": "^17.2.3",
+    "swr": "^0.5.5"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^1.20.0",
+    "@graphql-codegen/schema-ast": "^1.18.1",
+    "@graphql-codegen/typescript": "^1.19.0",
+    "@graphql-codegen/typescript-operations": "^1.17.13",
+    "@manifoldco/swagger-to-ts": "^2.1.0",
+    "@next/bundle-analyzer": "^10.0.1",
+    "@tailwindcss/forms": "^0.3.2",
+    "@tailwindcss/typography": "^0.4.0",
+    "@types/cookie": "^0.4.0",
+    "@types/dot-object": "^2.1.2",
+    "@types/lodash-es": "^4.17.4",
+    "@types/node": "^14.14.16",
+    "@types/nprogress": "^0.2.0",
+    "@types/prettier": "2.2.1",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.3",
+    "@types/react-redux": "^7.1.16",
+    "autoprefixer": "^10.2.5",
+    "cz-conventional-changelog": "^3.3.0",
+    "deepmerge": "^4.2.2",
+    "graphql": "^15.4.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.3",
+    "next-unused": "0.0.6",
+    "postcss": "^8.2.10",
+    "postcss-flexbugs-fixes": "^4.2.1",
+    "postcss-nesting": "^7.0.1",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "2.2.1",
+    "tailwindcss": "^2.1.1",
+    "tailwindcss-debug-screens": "^2.0.0",
+    "typescript": "^4.0.3"
   }
 }

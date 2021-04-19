@@ -1,10 +1,10 @@
 import '@assets/chrome-bug.css'
 import '@assets/main.css'
+import store from '@app/store'
 import type { AppProps } from 'next/app'
 import { FunctionComponent, useEffect } from 'react'
 import { Head } from '@components/common'
 import { Provider } from 'react-redux'
-import { store } from '@app/store'
 
 const Noop: FunctionComponent = ({ children }) => <>{children}</>
 

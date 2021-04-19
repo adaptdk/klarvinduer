@@ -1,10 +1,9 @@
-import { Layout } from '@components/common'
-import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
-
-import { getConfig } from '@framework/api'
+import getAllPages from '@framework/common/get-all-pages'
 import getAllProducts from '@framework/product/get-all-products'
 import getSiteInfo from '@framework/common/get-site-info'
-import getAllPages from '@framework/common/get-all-pages'
+import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
+import { getConfig } from '@framework/api'
+import { Layout } from '@components/common'
 
 export async function getStaticProps({
   preview,

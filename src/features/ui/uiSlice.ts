@@ -11,7 +11,7 @@ interface UIState {
 }
 
 const initialState: UIState = {
-  displayMainMenu: false,
+  displayMainMenu: true,
   displayModal: false,
   displaySidebar: false,
   modalView: 'login',
@@ -51,6 +51,8 @@ const uiSlice = createSlice({
   },
 })
 
+const { actions, reducer } = uiSlice
+
 // Actions
 export const {
   closeMainMenu,
@@ -62,10 +64,10 @@ export const {
   setModalView,
   toggleMainMenu,
   toggleSidebar,
-} = uiSlice.actions
+} = actions
 
 const selectUI = (state: RootState) => state.ui
 
 export const useUI = (): UIState => useTypedSelector(selectUI)
 
-export default uiSlice.reducer
+export default reducer

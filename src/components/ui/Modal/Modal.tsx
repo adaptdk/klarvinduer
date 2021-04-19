@@ -1,9 +1,9 @@
-import React, { ReactNode } from 'react'
+import { ReactNode } from 'react'
 
 interface Props {
   children: ReactNode
-  open: boolean
   onClose: () => void
+  open: boolean
 }
 
 export const Modal = ({ children, open, onClose }: Props) => {

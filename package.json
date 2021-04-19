@@ -1,8 +1,8 @@
 {
   "name": "nextjs-commerce",
   "version": "1.0.0",
-  "sideEffects": false,
   "license": "MIT",
+  "sideEffects": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -15,9 +15,6 @@
     "lint": "echo '@casper, setup eslint for helvede man'",
     "type-check": "tsc --pretty --noEmit",
     "test": "jest"
-  },
-  "engines": {
-    "node": "14.x"
   },
   "husky": {
     "hooks": {
@@ -146,5 +143,8 @@
     "tailwindcss": "^2.1.1",
     "tailwindcss-debug-screens": "^2.0.0",
     "typescript": "^4.0.3"
+  },
+  "engines": {
+    "node": "14.x"
   }
 }

@@ -1,5 +1,4 @@
 import Portal from '@reach/portal'
-import s from './Sidebar.module.css'
 import { useRef } from 'react'
 
 interface Props {
@@ -14,7 +13,11 @@ const Sidebar = ({ children, open = false, onClose }: Props) => {
   return (
     <Portal>
       {open ? (
-        <div className={s.root} ref={ref}>
+        <div
+          data-testid="sidebar"
+          className="fixed inset-0 overflow-hidden h-full z-50"
+          ref={ref}
+        >
           <div className="absolute inset-0 overflow-hidden">
             <div
               className="absolute inset-0 bg-black bg-opacity-50 transition-opacity"

@@ -1,6 +1,6 @@
 import React, { CSSProperties } from 'react'
 import clsx from 'clsx'
-import px from '../../../lib/to-pixels'
+import px from '@lib/to-pixels'
 import s from './Skeleton.module.css'
 
 interface Props {
@@ -33,6 +33,7 @@ const Skeleton: React.FC<Props> = ({
 
   return (
     <span
+      data-testid="skeleton"
       className={clsx(s.skeleton, className, {
         [s.show]: show,
         [s.wrapper]: shouldAutoSize,

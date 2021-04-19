@@ -1,6 +1,5 @@
 import clsx from 'clsx'
 import mergeRefs from 'react-merge-refs'
-import s from './Button.module.css'
 import {
   forwardRef,
   ButtonHTMLAttributes,
@@ -37,16 +36,17 @@ const Button = forwardRef(
     const ref = useRef<typeof Component>(null)
 
     const rootClassName = clsx(
-      s.root,
+      'btn',
       {
-        [s.loading]: loading,
-        [s.disabled]: disabled,
+        'btn-loading': loading,
+        'btn-disabled': disabled,
       },
       className
     )
 
     return (
       <Component
+        data-testid="button"
         aria-pressed={active}
         ref={mergeRefs([ref, buttonRef])}
         className={rootClassName}
@@ -58,6 +58,7 @@ const Button = forwardRef(
         {...rest}
       >
         {children}
+
         {loading && (
           <i className="pl-2 m-0 flex">
             <span>Loading..</span>

@@ -15,7 +15,11 @@ const Container = ({ children, className, el = 'div', clean }: Props) => {
 
   let Component: ComponentType<React.HTMLAttributes<HTMLDivElement>> = el as any
 
-  return <Component className={rootClassName}>{children}</Component>
+  return (
+    <Component data-testid="container" className={rootClassName}>
+      {children}
+    </Component>
+  )
 }
 
 export default Container

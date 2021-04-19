@@ -4,8 +4,7 @@ import getAllPages from '@framework/common/get-all-pages'
 import useCart from '@framework/cart/use-cart'
 import usePrice from '@framework/product/use-price'
 import { Layout } from '@components/common'
-import { Button, Text } from '@components/ui'
-import { Bag, Cross, Check, MapPin, CreditCard } from '@components/icons'
+import { Button } from '@components/ui'
 
 export async function getStaticProps({
   preview,
@@ -42,7 +41,7 @@ export default function Cart() {
         {isLoading || isEmpty ? (
           <div className="flex-1 px-12 py-24 flex flex-col justify-center items-center ">
             <span className="border border-dashed border-secondary flex items-center justify-center w-16 h-16 bg-primary p-12 rounded-lg text-primary">
-              <Bag className="absolute" />
+              Bag icon
             </span>
             <h2 className="pt-6 text-2xl font-bold tracking-wide text-center">
               Your cart is empty
@@ -54,7 +53,7 @@ export default function Cart() {
         ) : error ? (
           <div className="flex-1 px-4 flex flex-col justify-center items-center">
             <span className="border border-white rounded-full flex items-center justify-center w-16 h-16">
-              <Cross width={24} height={24} />
+              Cross icon
             </span>
             <h2 className="pt-6 text-xl font-light text-center">
               We couldn’t process the purchase. Please check your card
@@ -64,7 +63,7 @@ export default function Cart() {
         ) : success ? (
           <div className="flex-1 px-4 flex flex-col justify-center items-center">
             <span className="border border-white rounded-full flex items-center justify-center w-16 h-16">
-              <Check />
+              Check icon
             </span>
             <h2 className="pt-6 text-xl font-light text-center">
               Thank you for your order.
@@ -72,8 +71,8 @@ export default function Cart() {
           </div>
         ) : (
           <div className="px-4 sm:px-6 flex-1">
-            <Text variant="pageHeading">My Cart</Text>
-            <Text variant="sectionHeading">Review your Order</Text>
+            <p>My Cart</p>
+            <p>Review your Order</p>
             <ul className="py-6 space-y-6 sm:py-0 sm:space-y-0 sm:divide-y sm:divide-accents-2 border-b border-accents-2">
               {data!.lineItems.map(({ name, id, variant }) => (
                 <div key={id}>
@@ -84,10 +83,10 @@ export default function Cart() {
               ))}
             </ul>
             <div className="my-6">
-              <Text>
+              <p>
                 Before you leave, take a look at these items. We picked them
                 just for you
-              </Text>
+              </p>
               <div className="flex py-6 space-x-6">
                 {[1, 2, 3, 4, 5, 6].map((x) => (
                   <div
@@ -107,9 +106,7 @@ export default function Cart() {
               {/* Shipping Address */}
               {/* Only available with customCheckout set to true - Meaning that the provider does offer checkout functionality. */}
               <div className="rounded-md border border-accents-2 px-6 py-6 mb-4 text-center flex items-center justify-center cursor-pointer hover:border-accents-4">
-                <div className="mr-5">
-                  <MapPin />
-                </div>
+                <div className="mr-5">MapPin icon</div>
                 <div className="text-sm text-center font-medium">
                   <span className="uppercase">+ Add Shipping Address</span>
                   {/* <span>
@@ -121,9 +118,7 @@ export default function Cart() {
               {/* Payment Method */}
               {/* Only available with customCheckout set to true - Meaning that the provider does offer checkout functionality. */}
               <div className="rounded-md border border-accents-2 px-6 py-6 mb-4 text-center flex items-center justify-center cursor-pointer hover:border-accents-4">
-                <div className="mr-5">
-                  <CreditCard />
-                </div>
+                <div className="mr-5">Creditcard icon</div>
                 <div className="text-sm text-center font-medium">
                   <span className="uppercase">+ Add Payment Method</span>
                   {/* <span>VISA #### #### #### 2345</span> */}

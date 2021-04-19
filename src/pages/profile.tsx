@@ -1,9 +1,9 @@
-import type { GetStaticPropsContext } from 'next'
-import { getConfig } from '@framework/api'
 import getAllPages from '@framework/common/get-all-pages'
+import type { GetStaticPropsContext } from 'next'
 import useCustomer from '@framework/customer/use-customer'
+import { Container } from '@components/ui'
+import { getConfig } from '@framework/api'
 import { Layout } from '@components/common'
-import { Container, Text } from '@components/ui'
 
 export async function getStaticProps({
   preview,
@@ -20,18 +20,19 @@ export default function Profile() {
   const { data } = useCustomer()
   return (
     <Container>
-      <Text variant="pageHeading">My Profile</Text>
+      <h2>My Profile</h2>
       {data && (
         <div className="grid lg:grid-cols-12">
           <div className="lg:col-span-8 pr-4">
             <div>
-              <Text variant="sectionHeading">Full Name</Text>
+              <p>Full Name</p>
               <span>
                 {data.firstName} {data.lastName}
               </span>
             </div>
+
             <div className="mt-5">
-              <Text variant="sectionHeading">Email</Text>
+              <p>Email</p>
               <span>{data.email}</span>
             </div>
           </div>

@@ -1,7 +1,5 @@
-import clsx from 'clsx'
 import dynamic from 'next/dynamic'
 import LoginView from '@components/auth/LoginView'
-import s from './Layout.module.css'
 import type { Page } from '@framework/common/get-all-pages'
 import { closeModal, closeSidebar } from '@features/ui/uiSlice'
 import { CommerceProvider } from '@framework'
@@ -50,9 +48,9 @@ const Layout = ({
 
   return (
     <CommerceProvider locale={locale}>
-      <div className={clsx(s.root)}>
+      <div className="flex flex-col mx-auto min-h-screen max-w-[2560px]">
         <Navbar />
-        <main>{children}</main>
+        <main className="flex-1">{children}</main>
         <Footer />
 
         <Modal open={displayModal} onClose={() => dispatch(closeModal())}>

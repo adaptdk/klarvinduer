@@ -1,0 +1,17 @@
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-10 py-3 h-12 text-center font-medium rounded shadow transition duration-150 ease-in-out;
+  }
+
+  .btn-loading {
+    @apply cursor-not-allowed;
+  }
+
+  .btn-disabled,
+  .btn-disabled:hover {
+    @apply opacity-40 cursor-not-allowed;
+    -webkit-transform: translateZ(0);
+    -webkit-perspective: 1000;
+    -webkit-backface-visibility: hidden;
+  }
+}

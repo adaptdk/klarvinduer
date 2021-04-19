@@ -1,0 +1,24 @@
+@layer base {
+  :root {
+    --color-primary: #ffffff;
+    --color-secondary: #000000;
+
+    --text-base: #000000;
+    --text-primary: #000000;
+    --text-secondary: white;
+
+    --accents-0: #f8f9fa;
+    --accents-1: #f1f3f5;
+    --accents-2: #e9ecef;
+    --accents-3: #dee2e6;
+    --accents-4: #ced4da;
+    --accents-5: #adb5bd;
+    --accents-6: #868e96;
+    --accents-7: #495057;
+    --accents-8: #343a40;
+    --accents-9: #212529;
+
+    --font-sans: -apple-system, system-ui, BlinkMacSystemFont, 'Helvetica Neue',
+      'Helvetica', sans-serif;
+  }
+}

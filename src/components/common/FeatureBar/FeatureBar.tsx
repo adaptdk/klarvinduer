@@ -27,7 +27,7 @@ const FeatureBar = ({
     className
   )
   return (
-    <div className={rootClassName}>
+    <div data-testid="feature-bar" className={rootClassName}>
       <span className="block md:inline">{title}</span>
       <span className="block mb-6 md:inline md:mb-0 md:ml-2">
         {description}

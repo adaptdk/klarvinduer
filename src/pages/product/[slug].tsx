@@ -1,11 +1,11 @@
+import getAllPages from '@framework/common/get-all-pages'
+import getAllProductPaths from '@framework/product/get-all-product-paths'
+import getProduct from '@framework/product/get-product'
 import type {
   GetStaticPathsContext,
   GetStaticPropsContext,
   InferGetStaticPropsType,
 } from 'next'
-import getAllPages from '@framework/common/get-all-pages'
-import getAllProductPaths from '@framework/product/get-all-product-paths'
-import getProduct from '@framework/product/get-product'
 import { getConfig } from '@framework/api'
 import { Layout } from '@components/common'
 import { useRouter } from 'next/router'

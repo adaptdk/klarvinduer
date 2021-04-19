@@ -121,9 +121,7 @@ export default function Search({
             </div>
             <div
               className={`origin-top-left absolute lg:relative left-0 mt-2 w-full rounded-md shadow-lg lg:shadow-none z-10 mb-10 lg:block ${
-                activeFilter !== 'categories' || toggleFilter !== true
-                  ? 'hidden'
-                  : ''
+                activeFilter !== 'categories' || !toggleFilter ? 'hidden' : ''
               }`}
             >
               <div className="rounded-sm bg-white shadow-xs lg:bg-none lg:shadow-none">
@@ -220,9 +218,7 @@ export default function Search({
             </div>
             <div
               className={`origin-top-left absolute lg:relative left-0 mt-2 w-full rounded-md shadow-lg lg:shadow-none z-10 mb-10 lg:block ${
-                activeFilter !== 'brands' || toggleFilter !== true
-                  ? 'hidden'
-                  : ''
+                activeFilter !== 'brands' || !toggleFilter ? 'hidden' : ''
               }`}
             >
               <div className="rounded-sm bg-white shadow-xs lg:bg-none lg:shadow-none">
@@ -369,7 +365,7 @@ export default function Search({
             </div>
             <div
               className={`origin-top-left absolute lg:relative left-0 mt-2 w-full rounded-md shadow-lg lg:shadow-none z-10 mb-10 lg:block ${
-                activeFilter !== 'sort' || toggleFilter !== true ? 'hidden' : ''
+                activeFilter !== 'sort' || !toggleFilter ? 'hidden' : ''
               }`}
             >
               <div className="rounded-sm bg-white shadow-xs lg:bg-none lg:shadow-none">

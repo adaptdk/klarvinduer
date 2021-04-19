@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { useTypedSelector, RootState } from '@app/store'
+import { RootState } from '@app/store'
+import { useAppSelector } from '@app/hooks'
 
 type ModalViewTypes = 'signup' | 'login' | 'forgot_password'
 
@@ -68,6 +69,6 @@ export const {
 
 const selectUI = (state: RootState) => state.ui
 
-export const useUI = (): UIState => useTypedSelector(selectUI)
+export const useUI = (): UIState => useAppSelector(selectUI)
 
 export default reducer

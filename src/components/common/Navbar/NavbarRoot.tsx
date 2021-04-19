@@ -1,5 +1,5 @@
 import { FC, useState, useEffect } from 'react'
-import throttle from 'lodash.throttle'
+import throttle from 'lodash-es/throttle'
 import clsx from 'clsx'
 import s from './Navbar.module.css'
 

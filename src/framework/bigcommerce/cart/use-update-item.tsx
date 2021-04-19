@@ -1,10 +1,10 @@
 import { useCallback } from 'react'
-import debounce from 'lodash.debounce'
+import debounce from 'lodash-es/debounce'
 import type {
   MutationHookContext,
   HookFetcherContext,
-} from '../../commerce/utils/types'
-import { ValidationError } from '../../commerce/utils/errors'
+} from '@commerce/utils/types'
+import { ValidationError } from '@commerce/utils/errors'
 import useUpdateItem, {
   UpdateItemInput as UpdateItemInputBase,
   UseUpdateItem,

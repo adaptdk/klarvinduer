@@ -1,21 +1,19 @@
 import clsx from 'clsx'
-import React, { FC } from 'react'
+import React, { ComponentType } from 'react'
 
 interface Props {
   className?: string
   children?: any
-  el?: HTMLElement
+  el?: string
   clean?: boolean
 }
 
-const Container: FC<Props> = ({ children, className, el = 'div', clean }) => {
-  const rootClassName = clsx(className, {
-    'mx-auto max-w-8xl px-6': !clean,
+const Container = ({ children, className, el = 'div', clean }: Props) => {
+  const rootClassName = clsx(className, 'content-box', {
+    'mx-auto max-w-screen-xl px-6': !clean,
   })
 
-  let Component: React.ComponentType<
-    React.HTMLAttributes<HTMLDivElement>
-  > = el as any
+  let Component: ComponentType<React.HTMLAttributes<HTMLDivElement>> = el as any
 
   return <Component className={rootClassName}>{children}</Component>
 }

@@ -1,21 +1,22 @@
 import clsx from 'clsx'
 import s from './FeatureBar.module.css'
+import { ReactNode } from 'react'
 
 interface FeatureBarProps {
   className?: string
   title: string
   description?: string
   hide?: boolean
-  action?: React.ReactNode
+  action?: ReactNode
 }
 
-const FeatureBar: React.FC<FeatureBarProps> = ({
+const FeatureBar = ({
   title,
   description,
   className,
   action,
   hide,
-}) => {
+}: FeatureBarProps) => {
   const rootClassName = clsx(
     s.root,
     {

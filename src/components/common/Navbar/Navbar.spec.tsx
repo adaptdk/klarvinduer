@@ -1,6 +1,6 @@
-import { render } from '../../../../test/test-utils'
+import { render } from '@test/test-utils'
 
-import Navbar from './Navbar'
+import Navbar from '@components/common/Navbar'
 
 describe('Navbar', () => {
   it('has test navbar', () => {

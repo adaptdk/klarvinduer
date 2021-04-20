@@ -76,7 +76,7 @@ export type SWRHook<
   // Input expected before doing a fetch operation
   FetchInput extends HookFetchInput = AnyObject<HookInputValue>,
   // Custom state added to the response object of SWR
-  State = AnyObject
+  State = AnyObject<any>
 > = {
   useHook(
     context: SWRHookContext<Data, FetchInput>

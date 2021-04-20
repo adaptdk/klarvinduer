@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-commerce",
+  "name": "klarvinduer-commerce",
   "version": "1.0.0",
   "license": "MIT",
   "sideEffects": false,
@@ -26,7 +26,8 @@
   "lint-staged": {
     "*.@(ts|tsx)": [
       "npm run lint",
-      "npm run format"
+      "npm run format",
+      "npm run test"
     ]
   },
   "next-unused": {
@@ -113,10 +114,10 @@
     "@types/classnames": "^2.2.10",
     "@types/cookie": "^0.4.0",
     "@types/dot-object": "^2.1.2",
-    "@types/lodash": "^4.14.168",
-    "@types/lodash-es": "^4.17.4",
     "@types/jest": "^26.0.22",
     "@types/js-cookie": "^2.2.6",
+    "@types/lodash": "^4.14.168",
+    "@types/lodash-es": "^4.17.4",
     "@types/lodash.debounce": "^4.0.6",
     "@types/lodash.random": "^3.2.6",
     "@types/lodash.throttle": "^4.1.6",
@@ -128,6 +129,7 @@
     "@types/react-redux": "^7.1.16",
     "autoprefixer": "^10.2.5",
     "babel-jest": "^26.6.3",
+    "commitizen": "^4.2.3",
     "cz-conventional-changelog": "^3.3.0",
     "deepmerge": "^4.2.2",
     "graphql": "^15.4.0",

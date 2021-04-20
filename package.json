@@ -12,9 +12,10 @@
     "format": "prettier --write .",
     "generate": "graphql-codegen",
     "generate:definitions": "node src/framework/bigcommerce/scripts/generate-definitions.js",
-    "lint": "echo '@casper, setup eslint for helvede man'",
+    "lint": "eslint . --ext ts --ext tsx --ext js",
     "type-check": "tsc --pretty --noEmit",
-    "test": "jest"
+    "test": "jest",
+    "test-all": "npm run lint && npm run type-check && npm run test"
   },
   "husky": {
     "hooks": {
@@ -127,11 +128,18 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.3",
     "@types/react-redux": "^7.1.16",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
     "autoprefixer": "^10.2.5",
     "babel-jest": "^26.6.3",
     "commitizen": "^4.2.3",
     "cz-conventional-changelog": "^3.3.0",
     "deepmerge": "^4.2.2",
+    "eslint": "^7.24.0",
+    "eslint-config-prettier": "^8.2.0",
+    "eslint-plugin-jest-dom": "^3.8.0",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-testing-library": "^4.1.0",
     "graphql": "^15.4.0",
     "husky": "^4.3.8",
     "identity-obj-proxy": "^3.0.0",

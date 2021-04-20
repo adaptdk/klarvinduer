@@ -13,7 +13,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "paths": {
       "@app/*": ["app/*"],
       "@lib/*": ["lib/*"],
@@ -26,7 +26,8 @@
       "@framework": ["framework/bigcommerce"],
       "@framework/*": ["framework/bigcommerce/*"],
       "@features": ["features"],
-      "@features/*": ["features/*"]
+      "@features/*": ["features/*"],
+      "@test/*": ["test/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"],

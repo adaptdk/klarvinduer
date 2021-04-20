@@ -147,6 +147,7 @@
     "next-unused": "0.0.6",
     "postcss": "^8.2.10",
     "postcss-flexbugs-fixes": "^4.2.1",
+    "postcss-import": "^14.0.1",
     "postcss-nesting": "^7.0.1",
     "postcss-preset-env": "^6.7.0",
     "prettier": "2.2.1",

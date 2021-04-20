@@ -1,9 +1,8 @@
 name: Tests
-
 on: [pull_request]
-
 jobs:
-  build:
+  unit_testing:
+    name: Unit testing
     runs-on: ubuntu-latest
     strategy:
       fail-fast: true
@@ -16,7 +15,4 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
-      - name: Run type check
-        run: npm run type-check
-      - name: Run tests
-        run: npm test
+      - run: npm test

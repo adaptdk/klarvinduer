@@ -2,6 +2,8 @@ import type { ConfigInterface } from 'swr'
 import type { CommerceError } from './errors'
 import type { ResponseState } from './use-data'
 
+export type AnyObject<T = unknown> = Record<string, T>
+
 /**
  * Returns the properties in T with the properties in type K, overriding properties defined in T
  */
@@ -70,11 +72,11 @@ export type SWRHook<
   // Data obj returned by the hook and fetch operation
   Data,
   // Input expected by the hook
-  Input extends { [k: string]: unknown } = {},
+  Input extends { [k: string]: unknown } = AnyObject,
   // Input expected before doing a fetch operation
-  FetchInput extends HookFetchInput = {},
+  FetchInput extends HookFetchInput = AnyObject<HookInputValue>,
   // Custom state added to the response object of SWR
-  State = {}
+  State = AnyObject
 > = {
   useHook(
     context: SWRHookContext<Data, FetchInput>
@@ -88,7 +90,7 @@ export type SWRHook<
 
 export type SWRHookContext<
   Data,
-  FetchInput extends { [k: string]: unknown } = {}
+  FetchInput extends { [k: string]: unknown } = AnyObject
 > = {
   useData(context?: {
     input?: HookFetchInput | HookSWRInput
@@ -100,9 +102,9 @@ export type MutationHook<
   // Data obj returned by the hook and fetch operation
   Data,
   // Input expected by the hook
-  Input extends { [k: string]: unknown } = {},
+  Input extends { [k: string]: unknown } = AnyObject,
   // Input expected by the action returned by the hook
-  ActionInput extends { [k: string]: unknown } = {},
+  ActionInput extends { [k: string]: unknown } = AnyObject,
   // Input expected before doing a fetch operation
   FetchInput extends { [k: string]: unknown } = ActionInput
 > = {
@@ -115,7 +117,7 @@ export type MutationHook<
 
 export type MutationHookContext<
   Data,
-  FetchInput extends { [k: string]: unknown } | null = {}
+  FetchInput extends { [k: string]: unknown } | null = AnyObject
 > = {
   fetch: keyof FetchInput extends never
     ? () => Data | Promise<Data>

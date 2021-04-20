@@ -28,7 +28,7 @@ export const fetcher: HookFetcherFn<
   UpdateCartItemBody<CartItemBody>
 > = mutationFetcher
 
-const fn = (provider: Provider) => provider.cart?.useUpdateItem!
+const fn = (provider: Provider) => provider.cart.useUpdateItem
 
 const useUpdateItem: UseUpdateItem = (input) => {
   const hook = useHook(fn)

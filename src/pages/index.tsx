@@ -31,11 +31,9 @@ export async function getStaticProps({
   }
 }
 
-export default function Home({
-  products,
-  brands,
-  categories,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Home(
+  props: InferGetStaticPropsType<typeof getStaticProps>
+) {
   return (
     <div data-testid="home">
       <p>Home</p>

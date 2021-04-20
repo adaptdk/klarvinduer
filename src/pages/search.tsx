@@ -258,7 +258,6 @@ export default function Search({
                         className={clsx(
                           'block text-sm leading-5 text-gray-700 hover:bg-gray-100 lg:hover:bg-transparent hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900',
                           {
-                            // @ts-ignore Shopify - Fix this types
                             underline: activeBrand?.entityId === node.entityId,
                           }
                         )}
@@ -301,7 +300,7 @@ export default function Search({
                     Showing {data.products.length} results{' '}
                     {q && (
                       <>
-                        for "<strong>{q}</strong>"
+                        for &quot;<strong>{q}</strong>&quot;
                       </>
                     )}
                   </span>
@@ -313,7 +312,8 @@ export default function Search({
                   >
                     {q ? (
                       <>
-                        There are no products that match "<strong>{q}</strong>"
+                        There are no products that match &quot;
+                        <strong>{q}</strong>&quot;
                       </>
                     ) : (
                       <>
@@ -325,7 +325,7 @@ export default function Search({
                 </>
               ) : q ? (
                 <>
-                  Searching for: "<strong>{q}</strong>"
+                  Searching for: &quot;<strong>{q}</strong>&quot;
                 </>
               ) : (
                 <>Searching...</>

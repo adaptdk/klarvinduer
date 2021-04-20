@@ -74,7 +74,7 @@ export default function Cart() {
             <p>My Cart</p>
             <p>Review your Order</p>
             <ul className="py-6 space-y-6 sm:py-0 sm:space-y-0 sm:divide-y sm:divide-accents-2 border-b border-accents-2">
-              {data!.lineItems.map(({ name, id, variant }) => (
+              {data?.lineItems.map(({ name, id, variant }) => (
                 <div key={id}>
                   <span>name: {name}</span>
                   <span>id: {id}</span>

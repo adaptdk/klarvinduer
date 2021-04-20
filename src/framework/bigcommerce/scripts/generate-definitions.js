@@ -2,7 +2,7 @@
  * Generates definitions for REST API endpoints that are being
  * used by ../api using https://github.com/drwpow/swagger-to-ts
  */
-const { readFileSync, promises } = require('fs')
+const { promises } = require('fs')
 const path = require('path')
 const fetch = require('node-fetch')
 const swaggerToTS = require('@manifoldco/swagger-to-ts').default
@@ -40,6 +40,7 @@ async function writeDefinitions() {
 
     await promises.writeFile(destination, definition)
 
+    // eslint-disable-next-line no-console
     console.log(`✔️ Added definitions for: ${dest}`)
   })
 

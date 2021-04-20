@@ -38,10 +38,7 @@ interface Props {
   }
 }
 
-const Layout = ({
-  children,
-  pageProps: { commerceFeatures, ...pageProps },
-}: Props) => {
+const Layout = ({ children }: Props) => {
   const dispatch = useAppDispatch()
   const { displaySidebar, displayModal, modalView } = useUI()
   const { locale = 'en-US' } = useRouter()

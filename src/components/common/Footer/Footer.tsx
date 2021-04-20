@@ -6,7 +6,7 @@ interface Props {
   pages?: Page[]
 }
 
-const Footer = ({}: Props) => {
+const Footer = (props: Props) => {
   return (
     <div data-testid="footer">
       <p>Footer</p>

@@ -10,7 +10,7 @@ export type UseSearch<
 
 export const fetcher: HookFetcherFn<SearchProductsData, any> = SWRFetcher
 
-const fn = (provider: Provider) => provider.products?.useSearch!
+const fn = (provider: Provider) => provider.products.useSearch
 
 const useSearch: UseSearch = (input) => {
   const hook = useHook(fn)

@@ -1,5 +1,5 @@
-import { Product } from '../../../../commerce/types'
-import getAllProducts, { ProductEdge } from '../../../product/get-all-products'
+import { getAllProducts } from '@framework/product'
+import type { Product } from '@commerce/types'
 import type { ProductsHandlers } from '../products'
 
 const SORT: { [key: string]: string | undefined } = {

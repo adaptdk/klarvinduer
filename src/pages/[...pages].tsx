@@ -24,7 +24,7 @@ export async function getStaticProps({
   const pageItem = pages.find((p) => (p.url ? getSlug(p.url) === slug : false))
   const data =
     pageItem &&
-    (await getPage({ variables: { id: pageItem.id! }, config, preview }))
+    (await getPage({ variables: { id: pageItem.id ?? 0 }, config, preview }))
   const page = data?.page
 
   if (!page) {

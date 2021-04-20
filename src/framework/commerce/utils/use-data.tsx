@@ -1,4 +1,4 @@
-import useSWR, { responseInterface } from 'swr'
+import useSWR, { SWRResponse } from 'swr'
 import type {
   HookSWRInput,
   HookFetchInput,
@@ -6,15 +6,20 @@ import type {
   SwrOptions,
   HookFetcherOptions,
   HookFetcherFn,
+  AnyObject,
+  HookInputValue,
 } from './types'
 import defineProperty from './define-property'
 import { CommerceError } from './errors'
 
-export type ResponseState<Result> = responseInterface<Result, CommerceError> & {
+export type ResponseState<Result> = SWRResponse<Result, CommerceError> & {
   isLoading: boolean
 }
 
-export type UseData = <Data = any, FetchInput extends HookFetchInput = {}>(
+export type UseData = <
+  Data = any,
+  FetchInput extends HookFetchInput = AnyObject<HookInputValue>
+>(
   options: {
     fetchOptions: HookFetcherOptions
     fetcher: HookFetcherFn<Data, FetchInput>
@@ -37,7 +42,7 @@ const useData: UseData = (options, input, fetcherFn, swrOptions) => {
         options: { url, query, method },
         // Transform the input array into an object
         input: args.reduce((obj, val, i) => {
-          obj[hookInput[i][0]!] = val
+          obj[hookInput[i][0]] = val
           return obj
         }, {}),
         fetch: fetcherFn,

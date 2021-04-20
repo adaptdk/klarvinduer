@@ -6,7 +6,7 @@ export interface Props extends InputHTMLAttributes<HTMLInputElement> {
   onChange?: (...args: any[]) => any
 }
 
-const Input = ({ className, children, onChange, ...rest }: Props) => {
+const Input = ({ className, onChange, ...rest }: Props) => {
   const rootClassName = clsx({}, className)
 
   const handleOnChange = (e: any) => {

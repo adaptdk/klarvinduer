@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import type { MutationHook } from '../../commerce/utils/types'
+import type { AnyObject, MutationHook } from '../../commerce/utils/types'
 import { CommerceError } from '../../commerce/utils/errors'
 import useLogin, { UseLogin } from '../../commerce/auth/use-login'
 import type { LoginBody } from '../api/customers/login'
@@ -7,7 +7,7 @@ import useCustomer from '../customer/use-customer'
 
 export default useLogin as UseLogin<typeof handler>
 
-export const handler: MutationHook<null, {}, LoginBody> = {
+export const handler: MutationHook<null, AnyObject, LoginBody> = {
   fetchOptions: {
     url: '/api/bigcommerce/customers/login',
     method: 'POST',

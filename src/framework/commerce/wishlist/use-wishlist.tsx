@@ -15,7 +15,7 @@ export type UseWishlist<
 
 export const fetcher: HookFetcherFn<Wishlist | null, any> = SWRFetcher
 
-const fn = (provider: Provider) => provider.wishlist?.useWishlist!
+const fn = (provider: Provider) => provider.wishlist.useWishlist
 
 const useWishlist: UseWishlist = (input) => {
   const hook = useHook(fn)

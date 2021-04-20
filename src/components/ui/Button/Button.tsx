@@ -1,34 +1,35 @@
 import clsx from 'clsx'
 import mergeRefs from 'react-merge-refs'
 import {
-  forwardRef,
   ButtonHTMLAttributes,
+  forwardRef,
   JSXElementConstructor,
   useRef,
 } from 'react'
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  href?: string
-  className?: string
   active?: boolean
-  type?: 'submit' | 'reset' | 'button'
+  className?: string
   Component?: string | JSXElementConstructor<any>
-  width?: string | number
-  loading?: boolean
-  disabled?: boolean
+  href?: string
+  isDisabled?: boolean
+  isLoading?: boolean
+  loadingText?: string
+  type?: 'submit' | 'reset' | 'button'
+  variant?: 'primary' | 'secondary'
 }
 
 const Button = forwardRef(
   (
     {
-      className,
-      children,
       active,
-      width,
-      loading = false,
-      disabled = false,
-      style = {},
+      children,
+      className,
       Component = 'button',
+      isDisabled = false,
+      isLoading = false,
+      loadingText,
+      variant = 'primary',
       ...rest
     }: ButtonProps,
     buttonRef
@@ -38,8 +39,10 @@ const Button = forwardRef(
     const rootClassName = clsx(
       'btn',
       {
-        'btn-loading': loading,
-        'btn-disabled': disabled,
+        'btn-primary': variant === 'primary',
+        'btn-secondary': variant === 'secondary',
+        'btn-loading': isLoading,
+        'btn-disabled': isDisabled,
       },
       className
     )
@@ -48,21 +51,19 @@ const Button = forwardRef(
       <Component
         data-testid="button"
         aria-pressed={active}
+        aria-busy={isLoading}
         ref={mergeRefs([ref, buttonRef])}
         className={rootClassName}
-        disabled={disabled}
-        style={{
-          width,
-          ...style,
-        }}
+        disabled={isDisabled}
         {...rest}
       >
-        {children}
-
-        {loading && (
-          <i className="pl-2 m-0 flex">
-            <span>Loading..</span>
-          </i>
+        {isLoading ? (
+          <div className="flex items-center space-x-2">
+            <span>Spinner here</span>
+            {loadingText ? <span>{loadingText}</span> : null}
+          </div>
+        ) : (
+          children
         )}
       </Component>
     )

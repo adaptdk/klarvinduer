@@ -6,7 +6,7 @@ interface Props {
   open: boolean
 }
 
-export const Modal = ({ children, open, onClose }: Props) => {
+export const Modal = ({ children }: Props) => {
   return <div data-testid="modal">{children}</div>
 }
 

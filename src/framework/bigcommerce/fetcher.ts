@@ -23,12 +23,16 @@ const fetcher: Fetcher = async ({
   variables,
   body: bodyObj,
 }) => {
+  if (!url) {
+    throw new Error('fetch url is not defined')
+  }
+
   const hasBody = Boolean(variables || bodyObj)
   const body = hasBody
     ? JSON.stringify(variables ? { variables } : bodyObj)
     : undefined
   const headers = hasBody ? { 'Content-Type': 'application/json' } : undefined
-  const res = await fetch(url!, { method, body, headers })
+  const res = await fetch(url, { method, body, headers })
 
   if (res.ok) {
     const { data } = await res.json()

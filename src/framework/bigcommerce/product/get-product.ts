@@ -4,6 +4,7 @@ import { productInfoFragment } from '../api/fragments/product'
 import { BigcommerceConfig, getConfig } from '../api'
 import { normalizeProduct } from '../lib/normalize'
 import type { Product } from '../../commerce/types'
+import { AnyObject } from '@commerce/utils/types'
 
 export const getProductQuery = /* GraphQL */ `
   query getProduct(
@@ -94,7 +95,7 @@ async function getProduct({
   variables: ProductVariables
   config?: BigcommerceConfig
   preview?: boolean
-}): Promise<Product | {} | any> {
+}): Promise<Product | AnyObject | any> {
   config = getConfig(config)
 
   const locale = vars.locale || config.locale
@@ -102,7 +103,7 @@ async function getProduct({
     ...vars,
     locale,
     hasLocale: !!locale,
-    path: slug ? `/${slug}/` : vars.path!,
+    path: slug ? `/${slug}/` : vars.path ?? '',
   }
   const { data } = await config.fetch<GetProductQuery>(query, { variables })
   const product = data.site?.route?.node

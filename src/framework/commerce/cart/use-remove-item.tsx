@@ -25,7 +25,7 @@ export const fetcher: HookFetcherFn<
   RemoveCartItemBody
 > = mutationFetcher
 
-const fn = (provider: Provider) => provider.cart?.useRemoveItem!
+const fn = (provider: Provider) => provider.cart.useRemoveItem
 
 const useRemoveItem: UseRemoveItem = (input) => {
   const hook = useHook(fn)

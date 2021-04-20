@@ -9,7 +9,7 @@ export type UseLogout<
 
 export const fetcher: HookFetcherFn<null> = mutationFetcher
 
-const fn = (provider: Provider) => provider.auth?.useLogout!
+const fn = (provider: Provider) => provider.auth.useLogout
 
 const useLogout: UseLogout = (...args) => {
   const hook = useHook(fn)

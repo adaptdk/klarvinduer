@@ -21,8 +21,12 @@ export const handler: SWRHook<
   async fetcher({ input: { customerId, includeProducts }, options, fetch }) {
     if (!customerId) return null
 
+    if (!options.url) {
+      throw new Error('options.url is not defined')
+    }
+
     // Use a dummy base as we only care about the relative path
-    const url = new URL(options.url!, 'http://a')
+    const url = new URL(options.url, 'http://a')
 
     if (includeProducts) url.searchParams.set('products', '1')
 

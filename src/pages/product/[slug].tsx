@@ -18,13 +18,13 @@ export async function getStaticProps({
   const config = getConfig({ locale })
   const { pages } = await getAllPages({ config, preview })
   const { product } = await getProduct({
-    variables: { slug: params!.slug },
+    variables: { slug: params?.slug ?? '' },
     config,
     preview,
   })
 
   if (!product) {
-    throw new Error(`Product with slug '${params!.slug}' not found`)
+    throw new Error(`Product with slug '${params?.slug}' not found`)
   }
 
   return {
@@ -53,9 +53,9 @@ export async function getStaticPaths({ locales }: GetStaticPathsContext) {
   }
 }
 
-export default function Slug({
-  product,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Slug(
+  props: InferGetStaticPropsType<typeof getStaticProps>
+) {
   const router = useRouter()
 
   return router.isFallback ? (

@@ -92,13 +92,13 @@ export type Cart = {
 }
 
 // TODO: Properly define this type
-export interface Wishlist extends BCWishlist {}
+export type Wishlist = BCWishlist
 
 // TODO: Properly define this type
-export interface Customer extends BCCustomer {}
+export type Customer = BCCustomer
 
 // TODO: Properly define this type
-export interface SearchProductsData extends BCSearchProductsData {}
+export type SearchProductsData = BCSearchProductsData
 
 /**
  * Cart mutations

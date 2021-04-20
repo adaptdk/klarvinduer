@@ -1,5 +1,7 @@
 // Taken from https://fettblog.eu/typescript-assertion-signatures/
 
+import { AnyObject } from './types'
+
 type InferValue<Prop extends PropertyKey, Desc> = Desc extends {
   get(): any
   value: any
@@ -25,7 +27,7 @@ type DefineProperty<
   : Readonly<InferValue<Prop, Desc>>
 
 export default function defineProperty<
-  Obj extends object,
+  Obj extends AnyObject<any>,
   Key extends PropertyKey,
   PDesc extends PropertyDescriptor
 >(

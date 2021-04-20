@@ -61,7 +61,7 @@ async function login({
 
     response.setHeader(
       'Set-Cookie',
-      concatHeader(response.getHeader('Set-Cookie'), cookie)!
+      concatHeader(response.getHeader('Set-Cookie'), cookie) ?? ''
     )
   }
 

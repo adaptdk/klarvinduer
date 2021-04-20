@@ -21,8 +21,12 @@ export const handler: SWRHook<
     method: 'GET',
   },
   fetcher({ input: { search, categoryId, brandId, sort }, options, fetch }) {
+    if (!options.url) {
+      throw new Error('options.url is not defined')
+    }
+
     // Use a dummy base as we only care about the relative path
-    const url = new URL(options.url!, 'http://a')
+    const url = new URL(options.url, 'http://a')
 
     if (search) url.searchParams.set('search', search)
     if (Number.isInteger(categoryId))

@@ -13,7 +13,9 @@ const Container = ({ children, className, el = 'div', clean }: Props) => {
     'mx-auto max-w-screen-xl px-6': !clean,
   })
 
-  let Component: ComponentType<React.HTMLAttributes<HTMLDivElement>> = el as any
+  const Component: ComponentType<
+    React.HTMLAttributes<HTMLDivElement>
+  > = el as any
 
   return (
     <Component data-testid="container" className={rootClassName}>

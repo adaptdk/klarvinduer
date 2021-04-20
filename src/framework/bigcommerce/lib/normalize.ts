@@ -19,14 +19,7 @@ function normalizeProductOption(productOption: any) {
 }
 
 export function normalizeProduct(productNode: any): Product {
-  const {
-    entityId: id,
-    productOptions,
-    prices,
-    path,
-    id: _,
-    options: _0,
-  } = productNode
+  const { entityId: id, productOptions, prices, path } = productNode
 
   return update(productNode, {
     id: { $set: String(id) },

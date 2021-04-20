@@ -73,9 +73,10 @@ async function getCustomerWishlist({
       }, {})
       // Populate the wishlist items with the graphql products
       wishlist.items.forEach((item) => {
-        const product = item && productsById[item.product_id!]
+        const product = item && productsById[item.product_id ?? 0]
+
         if (item && product) {
-          // @ts-ignore Fix this type when the wishlist type is properly defined
+          // @ts-expect-error Fix this type when the wishlist type is properly defined
           item.product = product
         }
       })

@@ -37,7 +37,7 @@ export const handler = {
   }: HookFetcherContext<UpdateCartItemBody>) {
     if (Number.isInteger(item.quantity)) {
       // Also allow the update hook to remove an item if the quantity is lower than 1
-      if (item.quantity! < 1) {
+      if ((item.quantity ?? 0) < 1) {
         return removeItemHandler.fetcher({
           options: removeItemHandler.fetchOptions,
           input: { itemId },

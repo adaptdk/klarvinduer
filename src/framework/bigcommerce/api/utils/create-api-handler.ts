@@ -1,10 +1,11 @@
+import { AnyObject } from '@commerce/utils/types'
 import type { NextApiHandler, NextApiRequest, NextApiResponse } from 'next'
 import { BigcommerceConfig, getConfig } from '../index'
 
 export type BigcommerceApiHandler<
   T = any,
-  H extends BigcommerceHandlers = {},
-  Options extends {} = {}
+  H extends BigcommerceHandlers = AnyObject<BigcommerceHandler<any, any>>,
+  Options = AnyObject
 > = (
   req: NextApiRequest,
   res: NextApiResponse<BigcommerceApiResponse<T>>,
@@ -32,8 +33,8 @@ export type BigcommerceApiResponse<T> = {
 
 export default function createApiHandler<
   T = any,
-  H extends BigcommerceHandlers = {},
-  Options extends {} = {}
+  H extends BigcommerceHandlers = AnyObject<BigcommerceHandler<any, any>>,
+  Options = AnyObject
 >(
   handler: BigcommerceApiHandler<T, H, Options>,
   handlers: H,
@@ -46,7 +47,7 @@ export default function createApiHandler<
   }: {
     config?: BigcommerceConfig
     operations?: Partial<H>
-    options?: Options extends {} ? Partial<Options> : never
+    options?: Options extends AnyObject ? Partial<Options> : never
   } = {}): NextApiHandler {
     const ops = { ...operations, ...handlers }
     const opts = { ...defaultOptions, ...options }

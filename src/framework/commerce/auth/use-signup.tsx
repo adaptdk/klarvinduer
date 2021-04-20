@@ -9,7 +9,7 @@ export type UseSignup<
 
 export const fetcher: HookFetcherFn<null> = mutationFetcher
 
-const fn = (provider: Provider) => provider.auth?.useSignup!
+const fn = (provider: Provider) => provider.auth.useSignup
 
 const useSignup: UseSignup = (...args) => {
   const hook = useHook(fn)

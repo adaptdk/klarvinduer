@@ -1,6 +1,15 @@
 @layer components {
   .btn {
     @apply inline-flex items-center justify-center px-10 py-3 h-12 text-center font-medium rounded shadow transition duration-150 ease-in-out;
+    min-width: 3rem;
+  }
+
+  .btn-primary {
+    @apply bg-green-500 hover:bg-green-700 text-white;
+  }
+
+  .btn-secondary {
+    @apply bg-purple-500 hover:bg-purple-700 text-white;
   }
 
   .btn-loading {

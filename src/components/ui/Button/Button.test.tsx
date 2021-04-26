@@ -1,32 +1,30 @@
-import Button from './Button'
-import { fireEvent } from '@testing-library/dom'
-import { render, screen } from '@test/test-utils'
+import { render, screen, userEvent } from '@test/test-utils'
+import { Button } from '@components/ui'
 
 describe('Button', () => {
-  it('can be rendered', () => {
+  test('It renders correctly', () => {
     render(<Button>Click me</Button>)
     const button = screen.getByRole('button', { name: /click me/i })
 
     expect(button).toBeInTheDocument()
   })
 
-  it('can be disabled', () => {
+  test('It can be disabled', () => {
     render(<Button disabled>Click me</Button>)
-    const button = screen.getByRole('button', { name: /click me/i })
+    const button = screen.getByRole('button')
 
     expect(button).toBeDisabled()
   })
 
-  it('can be clicked', () => {
+  test('It can be clicked', () => {
     const handleClick = jest.fn()
-
     render(<Button onClick={handleClick}>Click me</Button>)
-    fireEvent.click(screen.getByRole('button', { name: /click me/i }))
+    userEvent.click(screen.getByRole('button', { name: /click me/i }))
 
     expect(handleClick).toHaveBeenCalledTimes(1)
   })
 
-  it('can be in a loading state', () => {
+  test('It can be in a loading state', () => {
     render(
       <Button isLoading loadingText="loading">
         Hello world
@@ -34,6 +32,7 @@ describe('Button', () => {
     )
     const button = screen.getByRole('button', { name: /loading/i })
 
+    expect(button).not.toHaveTextContent(/hello world/i)
     expect(button).toHaveAttribute('aria-busy')
   })
 })

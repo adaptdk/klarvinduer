@@ -1,7 +1,7 @@
 const Navbar = () => (
-  <div data-testid="navbar">
+  <nav>
     <span>Navbar</span>
-  </div>
+  </nav>
 )
 
 export default Navbar

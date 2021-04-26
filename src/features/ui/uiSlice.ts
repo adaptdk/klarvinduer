@@ -12,7 +12,7 @@ interface UIState {
 }
 
 const initialState: UIState = {
-  displayMainMenu: true,
+  displayMainMenu: false,
   displayModal: false,
   displaySidebar: false,
   modalView: 'login',

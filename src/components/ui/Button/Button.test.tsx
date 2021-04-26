@@ -10,7 +10,7 @@ describe('Button', () => {
   })
 
   test('It can be disabled', () => {
-    render(<Button disabled>Click me</Button>)
+    render(<Button isDisabled>Click me</Button>)
     const button = screen.getByRole('button')
 
     expect(button).toBeDisabled()

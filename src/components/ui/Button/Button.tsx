@@ -49,12 +49,11 @@ const Button = forwardRef(
 
     return (
       <Component
-        data-testid="button"
-        aria-pressed={active}
         aria-busy={isLoading}
-        ref={mergeRefs([ref, buttonRef])}
+        aria-pressed={active}
         className={rootClassName}
-        disabled={isDisabled}
+        disabled={isDisabled || isLoading}
+        ref={mergeRefs([ref, buttonRef])}
         {...rest}
       >
         {isLoading ? (

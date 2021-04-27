@@ -7,7 +7,7 @@ This is a frontend written in Next.js and based on the official Vercel commerce 
 ## URL's
 
 [Production](https://kv-prod.vercel.app/)  
-[Staging](https://kv-staging.vercel.app/)
+[Staging](https://kv-staging.vercel.app/)  
 [Develop](https://kv-develop.vercel.app/)
 
   
@@ -68,10 +68,12 @@ To run tests, run the following command
   
 ## Contact
 
-Christoffer Berg (Lead frontend)  
+Christoffer Berg (Lead Frontend)  
 [christoffer.berg@adaptagency.com](https://www.github.com/christofferberg)
 
-
-Casper Engelmann (Frontend developer)  
+Casper Engelmann (Frontend Developer)  
 [casper.engelmann@adaptagency.com](https://www.github.com/casperengl)
+
+Marcin Slezak (Senior Backend Developer)  
+[marcin@adaptagency.com](https://www.github.com/marsdk)
   

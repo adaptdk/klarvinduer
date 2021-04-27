@@ -1,123 +1,77 @@
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fcommerce&project-name=commerce&repo-name=commerce&demo-title=Next.js%20Commerce&demo-description=An%20all-in-one%20starter%20kit%20for%20high-performance%20e-commerce%20sites.&demo-url=https%3A%2F%2Fdemo.vercel.store&demo-image=https%3A%2F%2Fbigcommerce-demo-asset-ksvtgfvnd.vercel.app%2Fbigcommerce.png&integration-ids=oac_MuWZiE4jtmQ2ejZQaQ7ncuDT)
 
-# Next.js Commerce
+# Klarvinduer Ecommerce Storefront
 
-The all-in-one starter kit for high-performance e-commerce sites. With a few clicks, Next.js developers can clone, deploy and fully customize their own store.
-Start right now at [nextjs.org/commerce](https://nextjs.org/commerce)
+This is a frontend written in Next.js and based on the official Vercel commerce boilerplate for Bigcommerce. 
 
-Demo live at: [demo.vercel.store](https://demo.vercel.store/)
 
-- Shopify Demo: https://shopify.demo.vercel.store/
-- BigCommerce Demo: https://bigcommerce.demo.vercel.store/
+## URL's
 
-## Features
+[Production](https://kv-prod.vercel.app/)  
+[Staging](https://kv-staging.vercel.app/)
+[Develop](https://kv-develop.vercel.app/)
 
-- Performant by default
-- SEO Ready
-- Internationalization
-- Responsive
-- UI Components
-- Theming
-- Standardized Data Hooks
-- Integrations - Integrate seamlessly with the most common ecommerce platforms.
-- Dark Mode Support
+  
+## Tech Stack
 
-## Integrations
+**Client:** Next.js, TypeScript, Redux Toolkit, TailwindCSS
 
-Next.js Commerce integrates out-of-the-box with BigCommerce and Shopify. We plan to support all major ecommerce backends.
+**Tests:** Jest and React Testing Library
 
-## Considerations
+**Server:** Node
 
-- `framework/commerce` contains all types, helpers and functions to be used as base to build a new **provider**.
-- **Providers** live under `framework`'s root folder and they will extend Next.js Commerce types and functionality (`framework/commerce`).
-- We have a **Features API** to ensure feature parity between the UI and the Provider. The UI should update accordingly and no extra code should be bundled. All extra configuration for features will live under `features` in `commerce.config.json` and if needed it can also be accessed programatically.
-- Each **provider** should add its corresponding `next.config.js` and `commerce.config.json` adding specific data related to the provider. For example in case of BigCommerce, the images CDN and additional API routes.
-- **Providers don't depend on anything that's specific to the application they're used in**. They only depend on `framework/commerce`, on their own framework folder and on some dependencies included in `package.json`
+  
+## Installation 
 
-## Configuration
+Install Klarvinduer for development
 
-### How to change providers
-
-Open `.env.local` and change the value of `COMMERCE_PROVIDER` to the provider you would like to use, then set the environment variables for that provider (use `.env.template` as the base).
-
-### Features
-
-Every provider defines the features that it supports under `framework/{provider}/commerce.config.json`
-
-#### How to turn Features on and off
-
-> NOTE: The selected provider should support the feature that you are toggling. (This means that you can't turn wishlist on if the provider doesn't support this functionality out the box)
-
-- Open `commerce.config.json`
-- You'll see a config file like this:
-  ```json
-  {
-    "features": {
-      "wishlist": false
-    }
-  }
-  ```
-- Turn wishlist on by setting wishlist to true.
-- Run the app and the wishlist functionality should be back on.
-
-### How to create a new provider
-
-Follow our docs for [Adding a new Commerce Provider](src/framework/commerce/new-provider.md).
-
-If you succeeded building a provider, submit a PR with a valid demo and we'll review it asap.
-
-## Contribute
-
-Our commitment to Open Source can be found [here](https://vercel.com/oss).
-
-1. [Fork](https://help.github.com/articles/fork-a-repo/) this repository to your own GitHub account and then [clone](https://help.github.com/articles/cloning-a-repository/) it to your local device.
-2. Create a new branch `git checkout -b MY_BRANCH_NAME`
-3. Install yarn: `npm install -g yarn`
-4. Install the dependencies: `yarn`
-5. Duplicate `.env.template` and rename it to `.env.local`
-6. Add proper store values to `.env.local`
-7. Run `yarn dev` to build and watch for code changes
-
-## Work in progress
-
-We're using Github Projects to keep track of issues in progress and todo's. Here is our [Board](https://github.com/vercel/commerce/projects/1)
-
-People actively working on this project: @okbel & @lfades.
-
-## Troubleshoot
-
-<details>
-<summary>I already own a BigCommerce store. What should I do?</summary>
-<br>
-First thing you do is: <b>set your environment variables</b>
-<br>
-<br>
-.env.local
-
-```sh
-BIGCOMMERCE_STOREFRONT_API_URL=<>
-BIGCOMMERCE_STOREFRONT_API_TOKEN=<>
-BIGCOMMERCE_STORE_API_URL=<>
-BIGCOMMERCE_STORE_API_TOKEN=<>
-BIGCOMMERCE_STORE_API_CLIENT_ID=<>
-BIGCOMMERCE_CHANNEL_ID=<>
+```bash 
+  $ git clone git@github.com:christofferberg/klarvinduer.git
+  $ cd klarvinduer
+  $ npm install
+  $ git checkout develop
+  $ vercel env pull
 ```
 
-If your project was started with a "Deploy with Vercel" button, you can use Vercel's CLI to retrieve these credentials.
 
-1. Install Vercel CLI: `npm i -g vercel`
-2. Link local instance with Vercel and Github accounts (creates .vercel file): `vercel link`
-3. Download your environment variables: `vercel env pull .env.local`
+## Environment Variables
 
-Next, you're free to customize the starter. More updates coming soon. Stay tuned.
+**Requirement:**  You need to be a part of the Adapt Vercel team
 
-</details>
+To run this project, you will need to add environment variables to your .env file  
+This can be done by running `vercel env pull` on the `develop` branch. 
 
-<details>
-<summary>BigCommerce shows a Coming Soon page and requests a Preview Code</summary>
-<br>
-After Email confirmation, Checkout should be manually enabled through BigCommerce platform. Look for "Review & test your store" section through BigCommerce's dashboard.
-<br>
-<br>
-BigCommerce team has been notified and they plan to add more detailed about this subject.
-</details>
+  
+## Deployment
+
+This project is automatically deployed to Vercel by pushing to certain git branches, and by making pull requests. 
+
+`main` is automatically pushed to [production](https://kv-prod.vercel.app/)  
+`staging` is automatically pushed to [staging](https://kv-staging.vercel.app/)  
+`develop` is automatically pushed to [develop](https://kv-develop.vercel.app/)
+
+**pull requests** are automatically deployed to their own isolated environment.   
+Please login to the [Vercel Dashboard](https://vercel.com/dashboard) to see the URL's. 
+
+
+Further documentation:  
+[https://vercel.com/docs/platform/deployments](https://vercel.com/docs/platform/deployments)
+  
+
+## Running Tests
+
+To run tests, run the following command
+
+```bash
+  npm run test
+```
+
+  
+## Contact
+
+Christoffer Berg (Lead frontend)  
+[christoffer.berg@adaptagency.com](https://www.github.com/christofferberg)
+
+
+Casper Engelmann (Frontend developer)  
+[casper.engelmann@adaptagency.com](https://www.github.com/casperengl)
+  
